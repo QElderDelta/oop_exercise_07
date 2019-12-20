@@ -7,7 +7,11 @@ add_executable(lab7
     point.cpp
     rhombus.cpp
     pentagon.cpp
-    hexagon.cpp)
+    editor.cpp
+    factory.cpp
+    hexagon.cpp
+    command.cpp
+    document.cpp)
 
 set_property(TARGET lab7 PROPERTY CXX_STANDARD 17)
 

@@ -9,7 +9,7 @@
 class Hexagon : public Figure {
 public:
     Hexagon(Point* p, int id);
-    Hexagon(std::istream& is);
+    Hexagon(std::istream& is, int id);
     Point Center() const override;
     double Square() const override;
     void Print(std::ostream& os) const override;

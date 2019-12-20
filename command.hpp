@@ -2,8 +2,8 @@
 
 #include <memory>
 
-#include "figure.hpp"
 #include "document.hpp"
+#include "figure.hpp"
 
 class Command {
 public:
@@ -16,40 +16,17 @@ protected:
 
 class InsertCommand : public Command {
 public:
-    InsertCommand(std::shared_ptr<Document> document, Figures figure, 
-            Point* points) : figure(figure), points(points) {this->document = document;}; 
-
-    void exec() override {
-       document->insert(figure, points); 
-    }
-
-    void undo() override {
-        document->popBack();
-    }
-private:
-    Figures figure;
-    Point* points;
+    InsertCommand(std::shared_ptr<Document> document) {this->document = document;};
+    void exec() override;
+    void undo() override;
 };
 
 class RemoveCommand : public Command {
 public:
     RemoveCommand(std::shared_ptr<Document> document, int id) : 
         id(id), position(-1), figure(nullptr) {this->document = document;};
-
-    void exec() override {
-        try {
-            figure = document->getFigure(id);
-            position = document->getPosition(id);
-        } catch(std::exception& e) {
-            std::cout << e.what() << std::endl;
-            return;
-        }
-        document->remove(id);
-    }
-
-    void undo() override {
-        document->insert(position, figure);
-    }
+    void exec() override;
+    void undo() override;
 private:
     int id;
     int position;

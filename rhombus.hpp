@@ -8,7 +8,7 @@
 class Rhombus : public Figure {
 public:
     Rhombus(Point* p, int id);
-    Rhombus(std::istream& is);
+    Rhombus(std::istream& is, int id);
     Point Center() const override;
     double Square() const override;
     void Print(std::ostream& os) const override;

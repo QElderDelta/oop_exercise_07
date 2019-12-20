@@ -9,8 +9,9 @@ Pentagon::Pentagon(Point* p, int id) {
     this->id = id;
 }
 
-Pentagon::Pentagon(std::istream& is) {
+Pentagon::Pentagon(std::istream& is, int id) {
     is >> points[0] >> points[1] >> points[2] >> points[3] >> points[4];
+    this->id = id;
 }
 
 Point Pentagon::Center() const {
@@ -62,7 +63,7 @@ int Pentagon::getID() const {
 }
 
 void Pentagon::serialize(std::ostream& os) const {
-    os << points.size() << ' ';
+    os << 'P' << ' ';
     for(const auto& p : points) {
         os << p.x << ' ' << p.y << ' ';
     }

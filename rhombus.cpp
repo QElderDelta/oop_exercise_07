@@ -56,7 +56,7 @@ Rhombus::Rhombus(Point* p, int id) {
     this->id = id;
 }
 
-Rhombus::Rhombus(std::istream& is) {
+Rhombus::Rhombus(std::istream& is, int id) {
     Point p1, p2, p3, p4;
     is >> p1 >> p2 >> p3 >> p4;
     try {
@@ -90,6 +90,7 @@ Rhombus::Rhombus(std::istream& is) {
     points[1] = p2;
     points[2] = p3;
     points[3] = p4;
+    this->id = id;
 }
 
 Point Rhombus::Center() const {
@@ -124,7 +125,7 @@ int Rhombus::getID() const {
 }
 
 void Rhombus::serialize(std::ostream& os) const {
-    os << points.size() << ' ';
+    os << 'R' << ' ';
     for(const auto& p : points) {
         os << p.x << ' ' << p.y << ' ';
     }

@@ -9,7 +9,7 @@
 class Pentagon : public Figure {
 public:
     Pentagon(Point* p, int id);
-    Pentagon(std::istream& is);
+    Pentagon(std::istream& is, int id);
     Point Center() const override;
     double Square() const override;
     void Print(std::ostream& os) const override;

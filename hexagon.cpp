@@ -9,8 +9,9 @@ Hexagon::Hexagon(Point* p, int id) {
     this->id = id;
 }
 
-Hexagon::Hexagon(std::istream& is) {
+Hexagon::Hexagon(std::istream& is, int id) {
     is >> points[0] >> points[1] >> points[2] >> points[3] >> points[4] >> points[5];
+    this->id = id;
 }
 
 Point Hexagon::Center() const {
@@ -62,7 +63,7 @@ int Hexagon::getID() const {
 }
 
 void Hexagon::serialize(std::ostream& os) const {
-    os << points.size() << ' ';
+    os << 'H' << ' ';
     for(const auto& p : points) {
         os << p.x << ' ' << p.y << ' ';
     }

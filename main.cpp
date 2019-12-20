@@ -40,35 +40,7 @@ int main() {
                 std::cout << e.what() << std::endl;
             }    
         } else if(command == "add") {
-            std::cin >> figureType;
-            if(figureType == "R") {
-                Point* p = new Point[4];
-                for(int i = 0; i < 4; ++i) {
-                    std::cin >> p[i];
-                }
-                try {
-                    e.insert(Figures::Rhombus, p);
-                } catch(std::exception& e) {
-                    std::cout << e.what() << std::endl;
-                }   
-                delete[] p;
-            } else if(figureType == "P") {
-                Point* p = new Point[5];
-                for(int i = 0; i < 5; ++i) {
-                    std::cin >> p[i];
-                }
-                e.insert(Figures::Pentagon, p);
-                delete[] p;
-            } else if(figureType == "H") {
-                Point* p = new Point[6];
-                for(int i = 0; i < 6; ++i) {
-                    std::cin >> p[i];
-                }
-                e.insert(Figures::Hexagon, p);
-                delete[] p;
-            } else {
-                std::cout << "Unknown figure" << std::endl;
-            }
+            e.insert();
         } else if(command == "remove") {
             std::cin >> id;
             try {
