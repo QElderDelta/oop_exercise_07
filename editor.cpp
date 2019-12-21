@@ -2,6 +2,9 @@
 
 void Editor::createDocument() {
     document = std::make_shared<Document>();
+    while(!commandStack.empty()) {
+        commandStack.pop();
+    }
 }
 
 void Editor::insert() {
